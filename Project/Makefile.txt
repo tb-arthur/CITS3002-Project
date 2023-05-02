@@ -1,0 +1,14 @@
+CC              = cc
+CFLAGS          = -std=c99 -O -Wall -Werror -pedantic
+
+OBJ		= strsplit.o
+
+readline:	rake-c.c $(OBJ)
+	$(CC) $(CFLAGS) -o rake-c rake-c.c $(OBJ)
+
+%.o:	%.c
+	$(CC) $(CFLAGS) -c $<
+
+
+clean:
+	@rm -f readline $(OBJ)
